@@ -1,0 +1,78 @@
+* { box-sizing: border-box; }
+
+body {
+  background: black;
+  font-family: sans-serif;
+}
+
+/* ---- parallax ---- */
+
+.sprite {
+  background-image: url('../img/yoshis-island-parallax-sprite.png');
+  background-repeat: no-repeat;
+}
+
+.parallax {
+  width: 512px;
+  position: relative;
+  overflow-x: hidden;
+  padding-bottom: 40px;
+  background-position: 0 -1344px;
+  margin: 40px auto 20px;
+}
+
+.parallax__carousel {
+
+}
+
+.parallax__carousel__cell {
+  width: 512px;
+  height: 448px;
+}
+
+.parallax__carousel__cell:nth-child(1) { background-position: -0px -448px; }
+.parallax__carousel__cell:nth-child(2) { background-position: -512px -448px; }
+.parallax__carousel__cell:nth-child(3) { background-position: -1024px -448px; }
+.parallax__carousel__cell:nth-child(4) { background-position: -1536px -448px; }
+.parallax__carousel__cell:nth-child(5) { background-position: -2048px -448px; }
+
+.parallax__layer {
+  position: absolute;
+  height: 448px;
+  left: 0;
+  top: 0;
+}
+
+.parallax__layer--bg {
+  width: 2224px;
+}
+
+.parallax__layer--fg {
+  pointer-events: none;
+  width: 5200px;
+  background-position: 0 -896px;
+}
+
+.flickity-prev-next-button { z-index: 2; }
+
+.flickity-page-dots {
+/*  bottom: 10px;*/
+  z-index: 2;
+}
+
+.flickity-page-dots .dot {
+  background: white;
+}
+
+.tagline {
+  font-size: 20px;
+  text-align: center;
+  margin: 0 0 20px;
+}
+
+.tagline a {
+  color: #666;
+  text-decoration: none;
+}
+
+.tagline a:hover { color: #8C8; }
