@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>jQuery Quiz</title>
+  <link rel="stylesheet" type="text/css" href="normalize.min.css">
+  <link rel="stylesheet" type="text/css" href="dist/jquery.quiz-min.css" />
+</head>
+<body>
+<div id="quiz">
+  <div id="quiz-header">
+    <h1 id="custom-logo">No Fail Quiz Demo</h1>
+    <p><a id="custom-home">Home</a></p>
+  </div>
+  <div id="quiz-start-screen">
+    <h1>Custom Start Screen</h1>
+    <div><a href="#" id="quiz-start-btn" class="quiz-button">Begin</a></div>
+  </div>
+  <div id="quiz-results-screen">
+    <h2>You did it!</h2>
+  </div>
+  <div id="quiz-gameover-screen">
+    <h2>Sorry, you failed!</h2>
+    <p id="quiz-gameover-response"></p>
+    <p><a href="#" id="quiz-retry-btn">Retry</a></p>
+  </div>
+</div>
+
+<script src="dist/jquery.min.js"></script>
+<script src="dist/jquery.quiz-min.js"></script>
+<script>
+  $('#quiz').quiz({
+    //resultsScreen: '#results-screen',
+    //counter: false,
+    homeButton: '#custom-home',
+    counterFormat: 'Question %current',
+    allowIncorrect: false,
+    questions: [
+      {
+        'q': 'A smaple question?',
+        'options': [
+          'Answer 1',
+          'Answer 2'
+        ],
+        'correctIndex': 1,
+        'correctResponse': 'Custom correct response.',
+        'incorrectResponse': 'Custom incorrect response.'
+      },
+      {
+        'q': 'A smaple question?',
+        'options': [
+          'Answer 1',
+          'Answer 2'
+        ],
+        'correctIndex': 1,
+        'correctResponse': 'Custom correct response.',
+        'incorrectResponse': 'Custom incorrect response.'
+      },
+      {
+        'q': 'A smaple question?',
+        'options': [
+          'Answer 1',
+          'Answer 2'
+        ],
+        'correctIndex': 0,
+        'correctResponse': 'Custom correct response.',
+        'incorrectResponse': 'Custom incorrect response.'
+      },
+      {
+        'q': 'A smaple question?',
+        'options': [
+          'Answer 1',
+          'Answer 2'
+        ],
+        'correctIndex': 1,
+        'correctResponse': 'Custom correct response.',
+        'incorrectResponse': 'Custom incorrect response.'
+      },
+      {
+        'q': 'A smaple question?',
+        'options': [
+          'Answer 1',
+          'Answer 2'
+        ],
+        'correctIndex': 0,
+        'correctResponse': 'Custom correct response.',
+        'incorrectResponse': 'Custom incorrect response.'
+      }
+    ]
+  });
+</script>
+</body>
+</html>

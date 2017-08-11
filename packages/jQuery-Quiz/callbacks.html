@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>jQuery Quiz: Callbacks</title>
+  <link rel="stylesheet" type="text/css" href="normalize.min.css">
+  <link rel="stylesheet" type="text/css" href="dist/jquery.quiz-min.css" />
+</head>
+<body>
+<div id="quiz">
+  <div id="quiz-header">
+    <h1 id="quiz-logo">Callbacks Quiz Demo</h1>
+    <p><a id="quiz-home">Home</a></p>
+  </div>
+  <div id="quiz-start-screen">
+    <div><a href="#" id="quiz-start-btn" class="quiz-button">Click to Start</a></div>
+  </div>
+  <div id="videos" style="display:none;">
+    <div id="video-1" class="video">
+      <video src="videos/sample.mp4" controls></video>
+    </div>
+    <div id="video-2" class="video">
+      <video src="videos/sample.mp4" controls></video>
+    </div>
+    <div id="video-3" class="video">
+      <video src="videos/sample.mp4" controls></video>
+    </div>
+    <div id="video-4" class="video">
+      <video src="videos/sample.mp4" controls></video>
+    </div>
+    <div id="video-5" class="video">
+      <video src="videos/sample.mp4" controls></video>
+    </div>
+  </div>
+</div>
+
+<script src="dist/jquery.min.js"></script>
+<script src="dist/jquery.quiz-min.js"></script>
+<script>
+  var answerCallback = function(currentQuestion, correct) {
+    var $videoContainer = $('#video-' + currentQuestion);
+    $('#quiz-response').hide();
+    $('#quiz-controls').prepend($videoContainer);
+    $videoContainer.find('video').get(0).play();
+  };
+
+  var removeVideo = function() {
+    $('#videos').append($('#quiz-controls .video'));
+  };
+
+  $('#quiz').quiz({
+    //resultsScreen: '#results-screen',
+    //counter: false,
+    homeButton: '#quiz-home',
+    answerCallback: answerCallback,
+    nextCallback: removeVideo,
+    finishCallback: removeVideo,
+    homeCallback: removeVideo,
+    questions: [
+      {
+        'q': 'This is question 1.',
+        'options': [
+          'True',
+          'False'
+        ],
+        'correctIndex': 1,
+        'correctResponse': 'Correct!',
+        'incorrectResponse': 'Incorrect'
+      },
+      {
+        'q': 'This is question 2.',
+        'options': [
+          'True',
+          'False'
+        ],
+        'correctIndex': 0,
+        'correctResponse': 'Correct!',
+        'incorrectResponse': 'Incorrect'
+      },
+      {
+        'q': 'This is question 3.',
+        'options': [
+          'True',
+          'False'
+        ],
+        'correctIndex': 1,
+        'correctResponse': 'Correct!',
+        'incorrectResponse': 'Incorrect'
+      },
+      {
+        'q': 'This is question 4.',
+        'options': [
+          'True',
+          'False'
+        ],
+        'correctIndex': 0,
+        'correctResponse': 'Correct!',
+        'incorrectResponse': 'Incorrect'
+      },
+      {
+        'q': 'This is question 5.',
+        'options': [
+          'True',
+          'False'
+        ],
+        'correctIndex': 0,
+        'correctResponse': 'Correct!',
+        'incorrectResponse': 'Incorrect'
+      }
+    ]
+  });
+</script>
+</body>
+</html>

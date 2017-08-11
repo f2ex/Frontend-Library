@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>jQuery Quiz</title>
+  <link rel="stylesheet" type="text/css" href="normalize.min.css">
+  <link rel="stylesheet" type="text/css" href="dist/jquery.quiz-min.css" />
+</head>
+<body>
+<div id="quiz">
+  <div id="quiz-header">
+    <h1>Localization Quiz Demo</h1>
+    <p><a id="quiz-home-btn">Inicio</a></p>
+  </div>
+  <div id="quiz-start-screen">
+    <p><a href="#" id="quiz-start-btn" class="quiz-button">Comienzo</a></p>
+  </div>
+  <div id="quiz-results-screen">
+    <h3>Terminar</h3>
+    <p id="quiz-results"></p>
+  </div>
+</div>
+
+<script src="dist/jquery.min.js"></script>
+<script src="dist/jquery.quiz-min.js"></script>
+<script>
+  $('#quiz').quiz({
+    counterFormat: 'Pregunta %current de %total',
+    resultsFormat: 'Tienes %score de cada %total correctas',
+    nextButtonText: 'Siguiente',
+    finishButtonText: 'Terminar',
+    restartButtonText: 'Reiniciar',
+    questions: [
+      {
+        'q': 'Que hora es?',
+        'options': [
+          'Responder 1',
+          'Responder 2',
+          'Responder 3',
+          'Responder 4'
+        ],
+        'correctIndex': 1,
+        'correctResponse': 'Custom correct response.',
+        'incorrectResponse': 'Custom incorrect response.'
+      },
+      {
+        'q': 'De que color es el sol?',
+        'options': [
+          'Responder 1',
+          'Responder 2',
+          'Responder 3',
+          'Responder 4'
+        ],
+        'correctIndex': 3,
+        'correctResponse': 'Custom correct response.',
+        'incorrectResponse': 'Custom incorrect response.'
+      }
+    ]
+  });
+</script>
+</body>
+</html>
