@@ -1,0 +1,329 @@
+// Note: we use Autoprefixer to add vendor prefixes to our CSS -> https://github.com/postcss/autoprefixer
+
+@import '../partials/variables'; // colors, fonts etc...
+
+@import '../partials/mixins'; // custom mixins
+
+@import '../partials/layout'; // responsive grid and media queries
+
+/* -------------------------------- 
+
+Primary style
+
+-------------------------------- */
+
+*, *::after, *::before {
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 62.5%;
+}
+
+body {
+	font: {
+		size: 1.6rem;
+		family: $primary-font; // variables inside partials > _variables.scss
+	}
+	color: $color-1;
+	background-color: $color-3;
+}
+
+a {
+	color: $color-2;
+	text-decoration: none;
+}
+
+img, video, svg {
+	max-width: 100%;
+}
+
+/* -------------------------------- 
+
+Main Components 
+
+-------------------------------- */
+
+.cd-overflow-hidden {
+	/* this class is added to the body while the video is playing - used on desktop version only */
+	height: 100vh;
+	overflow: hidden;
+}
+
+.cd-immersive-video {
+	/* main wrapper */
+	position: relative;
+	height: 100vh;
+	width: 100%;
+	padding: 3em 5%;
+	margin: 0 auto;
+	overflow: hidden;
+
+	@include MQ(M) {
+		
+		.intro-wrapper {
+			display: table;
+			width: 100%;
+			height: 100%;
+			/* while loading the video - hide the content */
+			visibility: hidden;
+			opacity: 0;
+			transition: opacity 1.5s, visibility 1.5s;
+		}
+
+		&.video-is-loaded .intro-wrapper {
+			/* video has been loaded - reveal content */
+			visibility: visible;
+			opacity: 1;
+		}
+	}
+
+	@include MQ(L) {
+		padding: 0 calc(50% - 510px);
+	}
+}
+
+.cd-loader {
+	/* this is a loader - visible on desktop version while the video is loading */
+	display: none;
+
+	@include MQ(M) {
+		display: block;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform:  translateY(-50%) translateX(-50%);
+		height: 32px;
+		width: 32px;
+		background: $color-2;
+		animation: cd-loading .8s infinite;
+		transition: transform .3s;
+
+		&.no-animation {
+			animation: none;
+		}
+
+		&.scale-down {
+			/* scale(0.001) fixes bug on Firefox - scale not animated */
+			transform: translateY(-50%) translateX(-50%) scale(0.001);
+		}
+
+		.video-is-loaded & {
+			visibility: hidden;
+			opacity: 0;
+		}
+	}
+}
+
+.cd-immersive-video .product-intro {
+	text-align: center;
+	margin-bottom: 3em;
+	animation: cd-item-move-up .5s .3s;
+	animation-fill-mode: backwards;
+	
+	h1 {
+		font-size: 2.4rem;
+		line-height: 1.2;
+		color: $color-4;
+		margin-bottom: .4em;
+	}
+
+	p {
+		line-height: 1.4;
+		margin: 1em 0 1.4em;
+	}
+
+	@include MQ(M) {
+		display: table-cell;
+		vertical-align: middle;
+		animation: none;
+		text-align: left;
+
+		> div {
+			width: calc(100% - 400px);
+			max-width: 500px;
+		}
+
+		h1 {
+			font-size: 4rem;
+		}
+
+		.item {
+			opacity: 0;
+		}
+
+		&.animate-content .item {
+			animation: cd-item-slide-in .4s both;
+		}
+
+		&.animate-content .item-1 {
+			animation-delay: .1s;
+		}
+
+		&.animate-content .item-2 {
+			animation-delay: .2s;
+		}
+
+		&.animate-content .item-3 {
+			animation-delay: .3s;
+		}
+
+		.no-cssanimations &.animate-content .item {
+			/* if browser does not support css animations */
+			opacity: 1;
+		}
+	}
+}
+
+.cd-btn {
+	display: inline-block;
+	color: $color-3;
+	background: $color-2;
+	padding: 1em 2em;
+	box-shadow: 0 2px 10px rgba($color-2, .2);
+	transition: all .2s;
+
+	&:hover {
+		box-shadow: 0 6px 30px rgba($color-2, .3);
+	}
+}
+
+.cd-immersive-video .product-preview {
+	position: relative;
+	width: 340px;
+	max-width: 90%;
+	margin: 0 auto;
+	animation: cd-item-move-up .5s .5s;
+	animation-fill-mode: backwards;
+	overflow: hidden;
+
+	.device-frame {
+		position: relative;
+		z-index: 1;
+
+		img {
+			display: block;
+			width: 100%;
+		}
+	}
+
+	.product-image, .product-video {
+		position: absolute;
+		/* top, left, width and height values depend on the device frame size */
+		top: 9.5%;
+		left: 6%;
+		width: 88%;
+		height: 81%;
+		box-shadow: 0 0 0 1px #000;
+	}
+
+	.product-image {
+		z-index: 2;
+		overflow: hidden;
+		background: #000;
+
+		img {
+			display: block;
+			width: 100%;
+		}
+	}
+
+	.product-video {
+		display: none;
+		z-index: 3;
+	}
+
+	.no-cssanimations & .product-video {
+		visibility: hidden;
+	}
+
+	@include MQ(M) {
+		position: absolute;
+		width: 300px;
+		top: 0;
+		left: 0;
+
+		/* Force Hardware acceleration */
+		transform: translateZ(0);
+		backface-visibility: hidden;
+		will-change: transform;
+
+		transition: transform 0.8s;
+		transition-timing-function: cubic-bezier(0.67, 0.17, 0.32, 0.95);
+		animation: none;
+
+		&.no-transition {
+			/* this class is used to initially scale up the video with no transition */
+			transition: none;
+		}
+
+		&.video-zoomed-out {
+			/* once the video has been scaled down - reduce the transition duration */
+			transition-duration: .4s;
+		}
+
+		.product-video {
+			display: block;
+
+			&.has-bg-color {
+				/* class added to the video wrapper when the video is loaded, to hide the fallback image */
+				background: #000;
+			}
+		}
+
+		.video-wrapper {
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 100%;
+			width: 100%;
+			overflow: hidden;
+		}
+
+		video {
+			display: block;
+			position: absolute;
+			@include center;
+			min-height: 100%;
+			min-width: 100%;
+			max-width: none;
+			height: 100%;
+			width: auto;
+			background: #000;
+		}
+	}
+}
+
+@keyframes cd-item-move-up {
+	0% {
+		opacity: 0;
+		transform: translateY(50px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes cd-item-slide-in {
+	0% {
+		opacity: 0;
+		transform: translateX(-50px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+@keyframes cd-loading {
+	0% {
+		transform: translateX(-50%) translateY(-50%) rotate(0deg);
+	}
+
+	100% {
+		transform: translateX(-50%) translateY(-50%) rotate(360deg);
+	}
+}

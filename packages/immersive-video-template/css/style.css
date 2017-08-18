@@ -1,0 +1,379 @@
+/* -------------------------------- 
+
+Primary style
+
+-------------------------------- */
+*, *::after, *::before {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: "Roboto", sans-serif;
+  color: #9F9F9F;
+  background-color: #ffffff;
+}
+
+a {
+  color: #2D60D5;
+  text-decoration: none;
+}
+
+img, video, svg {
+  max-width: 100%;
+}
+
+/* -------------------------------- 
+
+Main Components 
+
+-------------------------------- */
+.cd-overflow-hidden {
+  /* this class is added to the body while the video is playing - used on desktop version only */
+  height: 100vh;
+  overflow: hidden;
+}
+
+.cd-immersive-video {
+  /* main wrapper */
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  padding: 3em 5%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+@media only screen and (min-width: 800px) {
+  .cd-immersive-video .intro-wrapper {
+    display: table;
+    width: 100%;
+    height: 100%;
+    /* while loading the video - hide the content */
+    visibility: hidden;
+    opacity: 0;
+    -webkit-transition: opacity 1.5s, visibility 1.5s;
+    transition: opacity 1.5s, visibility 1.5s;
+  }
+  .cd-immersive-video.video-is-loaded .intro-wrapper {
+    /* video has been loaded - reveal content */
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+@media only screen and (min-width: 1100px) {
+  .cd-immersive-video {
+    padding: 0 calc(50% - 510px);
+  }
+}
+
+.cd-loader {
+  /* this is a loader - visible on desktop version while the video is loading */
+  display: none;
+}
+
+@media only screen and (min-width: 800px) {
+  .cd-loader {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translateY(-50%) translateX(-50%);
+        -ms-transform: translateY(-50%) translateX(-50%);
+            transform: translateY(-50%) translateX(-50%);
+    height: 32px;
+    width: 32px;
+    background: #2D60D5;
+    -webkit-animation: cd-loading .8s infinite;
+            animation: cd-loading .8s infinite;
+    -webkit-transition: -webkit-transform .3s;
+    transition: -webkit-transform .3s;
+    transition: transform .3s;
+    transition: transform .3s, -webkit-transform .3s;
+  }
+  .cd-loader.no-animation {
+    -webkit-animation: none;
+            animation: none;
+  }
+  .cd-loader.scale-down {
+    /* scale(0.001) fixes bug on Firefox - scale not animated */
+    -webkit-transform: translateY(-50%) translateX(-50%) scale(0.001);
+        -ms-transform: translateY(-50%) translateX(-50%) scale(0.001);
+            transform: translateY(-50%) translateX(-50%) scale(0.001);
+  }
+  .video-is-loaded .cd-loader {
+    visibility: hidden;
+    opacity: 0;
+  }
+}
+
+.cd-immersive-video .product-intro {
+  text-align: center;
+  margin-bottom: 3em;
+  -webkit-animation: cd-item-move-up .5s .3s;
+          animation: cd-item-move-up .5s .3s;
+  -webkit-animation-fill-mode: backwards;
+          animation-fill-mode: backwards;
+}
+
+.cd-immersive-video .product-intro h1 {
+  font-size: 2.4rem;
+  line-height: 1.2;
+  color: #151515;
+  margin-bottom: .4em;
+}
+
+.cd-immersive-video .product-intro p {
+  line-height: 1.4;
+  margin: 1em 0 1.4em;
+}
+
+@media only screen and (min-width: 800px) {
+  .cd-immersive-video .product-intro {
+    display: table-cell;
+    vertical-align: middle;
+    -webkit-animation: none;
+            animation: none;
+    text-align: left;
+  }
+  .cd-immersive-video .product-intro > div {
+    width: calc(100% - 400px);
+    max-width: 500px;
+  }
+  .cd-immersive-video .product-intro h1 {
+    font-size: 4rem;
+  }
+  .cd-immersive-video .product-intro .item {
+    opacity: 0;
+  }
+  .cd-immersive-video .product-intro.animate-content .item {
+    -webkit-animation: cd-item-slide-in .4s both;
+            animation: cd-item-slide-in .4s both;
+  }
+  .cd-immersive-video .product-intro.animate-content .item-1 {
+    -webkit-animation-delay: .1s;
+            animation-delay: .1s;
+  }
+  .cd-immersive-video .product-intro.animate-content .item-2 {
+    -webkit-animation-delay: .2s;
+            animation-delay: .2s;
+  }
+  .cd-immersive-video .product-intro.animate-content .item-3 {
+    -webkit-animation-delay: .3s;
+            animation-delay: .3s;
+  }
+  .no-cssanimations .cd-immersive-video .product-intro.animate-content .item {
+    /* if browser does not support css animations */
+    opacity: 1;
+  }
+}
+
+.cd-btn {
+  display: inline-block;
+  color: #ffffff;
+  background: #2D60D5;
+  padding: 1em 2em;
+  box-shadow: 0 2px 10px rgba(45, 96, 213, 0.2);
+  -webkit-transition: all .2s;
+  transition: all .2s;
+}
+
+.cd-btn:hover {
+  box-shadow: 0 6px 30px rgba(45, 96, 213, 0.3);
+}
+
+.cd-immersive-video .product-preview {
+  position: relative;
+  width: 340px;
+  max-width: 90%;
+  margin: 0 auto;
+  -webkit-animation: cd-item-move-up .5s .5s;
+          animation: cd-item-move-up .5s .5s;
+  -webkit-animation-fill-mode: backwards;
+          animation-fill-mode: backwards;
+  overflow: hidden;
+}
+
+.cd-immersive-video .product-preview .device-frame {
+  position: relative;
+  z-index: 1;
+}
+
+.cd-immersive-video .product-preview .device-frame img {
+  display: block;
+  width: 100%;
+}
+
+.cd-immersive-video .product-preview .product-image, .cd-immersive-video .product-preview .product-video {
+  position: absolute;
+  /* top, left, width and height values depend on the device frame size */
+  top: 9.5%;
+  left: 6%;
+  width: 88%;
+  height: 81%;
+  box-shadow: 0 0 0 1px #000;
+}
+
+.cd-immersive-video .product-preview .product-image {
+  z-index: 2;
+  overflow: hidden;
+  background: #000;
+}
+
+.cd-immersive-video .product-preview .product-image img {
+  display: block;
+  width: 100%;
+}
+
+.cd-immersive-video .product-preview .product-video {
+  display: none;
+  z-index: 3;
+}
+
+.no-cssanimations .cd-immersive-video .product-preview .product-video {
+  visibility: hidden;
+}
+
+@media only screen and (min-width: 800px) {
+  .cd-immersive-video .product-preview {
+    position: absolute;
+    width: 300px;
+    top: 0;
+    left: 0;
+    /* Force Hardware acceleration */
+    -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+    will-change: transform;
+    -webkit-transition: -webkit-transform 0.8s;
+    transition: -webkit-transform 0.8s;
+    transition: transform 0.8s;
+    transition: transform 0.8s, -webkit-transform 0.8s;
+    -webkit-transition-timing-function: cubic-bezier(0.67, 0.17, 0.32, 0.95);
+            transition-timing-function: cubic-bezier(0.67, 0.17, 0.32, 0.95);
+    -webkit-animation: none;
+            animation: none;
+  }
+  .cd-immersive-video .product-preview.no-transition {
+    /* this class is used to initially scale up the video with no transition */
+    -webkit-transition: none;
+    transition: none;
+  }
+  .cd-immersive-video .product-preview.video-zoomed-out {
+    /* once the video has been scaled down - reduce the transition duration */
+    -webkit-transition-duration: .4s;
+            transition-duration: .4s;
+  }
+  .cd-immersive-video .product-preview .product-video {
+    display: block;
+  }
+  .cd-immersive-video .product-preview .product-video.has-bg-color {
+    /* class added to the video wrapper when the video is loaded, to hide the fallback image */
+    background: #000;
+  }
+  .cd-immersive-video .product-preview .video-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+  }
+  .cd-immersive-video .product-preview video {
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    bottom: auto;
+    right: auto;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+        -ms-transform: translateX(-50%) translateY(-50%);
+            transform: translateX(-50%) translateY(-50%);
+    min-height: 100%;
+    min-width: 100%;
+    max-width: none;
+    height: 100%;
+    width: auto;
+    background: #000;
+  }
+}
+
+@-webkit-keyframes cd-item-move-up {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(50px);
+            transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@keyframes cd-item-move-up {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(50px);
+            transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@-webkit-keyframes cd-item-slide-in {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-50px);
+            transform: translateX(-50px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@keyframes cd-item-slide-in {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-50px);
+            transform: translateX(-50px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@-webkit-keyframes cd-loading {
+  0% {
+    -webkit-transform: translateX(-50%) translateY(-50%) rotate(0deg);
+            transform: translateX(-50%) translateY(-50%) rotate(0deg);
+  }
+  100% {
+    -webkit-transform: translateX(-50%) translateY(-50%) rotate(360deg);
+            transform: translateX(-50%) translateY(-50%) rotate(360deg);
+  }
+}
+
+@keyframes cd-loading {
+  0% {
+    -webkit-transform: translateX(-50%) translateY(-50%) rotate(0deg);
+            transform: translateX(-50%) translateY(-50%) rotate(0deg);
+  }
+  100% {
+    -webkit-transform: translateX(-50%) translateY(-50%) rotate(360deg);
+            transform: translateX(-50%) translateY(-50%) rotate(360deg);
+  }
+}

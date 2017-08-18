@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+
+	<link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
+	<link rel="stylesheet" href="css/style.css"> <!-- Resource style -->
+  	
+	<title>Immersive Video Template</title>
+</head>
+<body>
+	<div class="cd-immersive-video">
+		<div class="intro-wrapper">
+			<div class="product-intro">
+				<div>
+					<h1 class="item item-1">沉浸式视频模板</h1>
+					
+					<p class="item item-2">将全屏动画调整为移动设备演示的内容</p>
+
+					<a href="#0" class="cd-btn item item-3">Download</a>
+				</div>
+			</div> <!-- .product-intro -->
+
+			<div class="product-preview no-transition">
+				<div class="device-frame"><img src="assets/img/mobile-frame.svg" alt="Device Frame"></div>
+
+				<div class="product-image">
+					<img src="assets/img/video-fallback.jpg" alt="Product Preview">
+				</div>
+
+				<div class="product-video" data-video="assets/video/video.mp4">
+					<div class="video-wrapper"></div>
+				</div>
+			</div> <!-- .product-preview -->
+		</div> 
+
+		<div class="cd-loader"></div>
+	</div> <!-- .cd-immersive-video -->
+<script src="js/modernizr.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+<script>
+	if( !window.jQuery ) document.write('<script src="js/jquery-3.0.0.min.js"><\/script>');
+</script>
+<script src="js/main.js"></script> <!-- Resource jQuery -->
+</body>
+</html>
