@@ -1,0 +1,493 @@
+/* Effect 1: YouTube loading */
+.la-anim-1 {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: -1;
+	width: 100%;
+	height: 3px;
+	background: #ed4e6e;
+	-webkit-transform: translate3d(-100%, 0, 0);
+	transform: translate3d(-100%, 0, 0);
+	pointer-events: none;
+}
+
+.la-anim-1::after {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 100px;
+	height: 100%;
+	background: #ed4e6e;
+	box-shadow: 0 0 15px #ed4e6e, 0 0 5px #ed4e6e;
+	content: '';
+	opacity: 0;
+	-webkit-transition: opacity 0.2s, box-shadow 2s 4s;
+	transition: opacity 0.2s, box-shadow 2s 4s;
+	-webkit-transform: rotate(2deg) translateY(-2px);
+	transform: rotate(2deg) translateY(-2px);
+}
+
+.la-anim-1.la-animate {
+	z-index: 100;
+	opacity: 0;
+	-webkit-transition: -webkit-transform 5s ease-in, opacity 1s 5s;
+	transition: transform 5s ease-in, opacity 1s 5s;
+	-webkit-transform: translate3d(0%, 0, 0);
+	transform: translate3d(0%, 0, 0);
+}
+
+.la-anim-1.la-animate::after {
+	box-shadow: 0 0 3px #ed4e6e, 0 0 1px #ed4e6e;
+	opacity: 1;
+}
+
+/* Effect 2: Fill up from left */
+.la-anim-2 {
+	position: fixed;
+	left: -100%;
+	z-index: -1;
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,0.1);
+	pointer-events: none;
+}
+
+.la-anim-2.la-animate {
+	z-index: 100;
+	opacity: 0;
+	-webkit-transition: -webkit-transform 5s ease-in, opacity 1s 5s;
+	transition: transform 5s ease-in, opacity 1s 5s;
+	-webkit-transform: translate3d(100%,0,0);
+	transform: translate3d(100%,0,0);
+}
+
+/* Effect 3: Fill up from down */
+.la-anim-3 {
+	position: fixed;
+	top: 100%;
+	z-index: 100;
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,0.1);
+	pointer-events: none;
+}
+
+.la-anim-3.la-animate {
+	z-index: 100;
+	opacity: 0;
+	-webkit-transition: -webkit-transform 5s ease-in, opacity 1s 5s;
+	transition: transform 5s ease-in, opacity 1s 5s;
+	-webkit-transform: translate3d(0,-100%,0);
+	transform: translate3d(0,-100%,0);
+}
+
+/* Effect 4: Expanding box */
+.la-anim-4 {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	z-index: -1;
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,0.1);
+	-webkit-transform: translateX(-50%) translateY(-50%) scale(0);
+	transform: translateX(-50%) translateY(-50%) scale(0);
+	-webkit-transform-origin: 50% 50%;
+	transform-origin: 50% 50%;
+	pointer-events: none;
+}
+
+.la-anim-4.la-animate {
+	z-index: 100;
+	opacity: 0;
+	-webkit-transition: -webkit-transform 5s ease-in, opacity 1s 5s;
+	transition: transform 5s ease-in, opacity 1s 5s;
+	-webkit-transform: translateX(-50%) translateY(-50%) scale(1);
+	transform: translateX(-50%) translateY(-50%) scale(1);
+}
+
+/* Effect 5: 3d bar bottom */
+.la-anim-5 {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	z-index: -1;
+	width: 100%;
+	height: 12px;
+	background: #ed4e6e;
+	-webkit-transform: translate3d(-103%, 0, 0);
+	transform: translate3d(-103%, 0, 0);
+	pointer-events: none;
+}
+
+.la-anim-5::before,
+.la-anim-5::after {
+	position: absolute;
+	content: '';
+}
+
+.la-anim-5::before {
+	bottom: 100%;
+	left: -10%;
+	width: 110%;
+	height: 6px;
+	background: #fb738f;
+	-webkit-transform: skew(-45deg);
+	transform: skew(-45deg);
+	-webkit-transform-origin: 0 100%;
+	transform-origin: 0 100%;
+}
+
+.la-anim-5::after {
+	top: 0;
+	left: 100%;
+	width: 6px;
+	height: 100%;
+	background: #d23d5b;
+	-webkit-transform: skew(0,-45deg);
+	transform: skew(0,-45deg);
+	-webkit-transform-origin: 0 0;
+	transform-origin: 0 0;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+
+.la-anim-5.la-animate {
+	bottom: -20px;
+	z-index: 100;
+	-webkit-transition: -webkit-transform 5s ease-in, bottom 0.3s 5.7s;
+	transition: transform 5s ease-in, bottom 0.3s 5.7s;
+	-webkit-transform: translate3d(0%, 0, 0);
+	transform: translate3d(0%, 0, 0);
+}
+
+/* Effect 6: Pie Timer from Anders Grimsrud http://codepen.io/agrimsrud/pen/EmCoa */
+.la-anim-6 svg {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	z-index: -1;
+	display: block;
+	width: 500px;
+	height: 500px;
+	-webkit-transform: translateX(-50%) translateY(-50%);
+	transform: translateX(-50%) translateY(-50%);
+	pointer-events: none;
+}
+
+.la-anim-6.la-animate svg {
+	z-index: 100;
+}
+
+#la-anim-6-loader { 
+	fill: #fff; 
+	fill-opacity: 0.05; 
+}
+
+#la-anim-6-border { 
+	fill: #000; 
+	fill-opacity: 0.05;
+}
+
+/* Effect 7: Centered expanding line */
+.la-anim-7 {
+	position: fixed;
+	top: 50%;
+	bottom: 0;
+	left: 50%;
+	z-index: -1;
+	width: 0;
+	height: 100%;
+	background: rgba(0,0,0,0.1);
+	-webkit-transform: translateX(-50%) translateY(-50%);
+	transform: translateX(-50%) translateY(-50%);
+	pointer-events: none;
+}
+
+.la-anim-7.la-animate {
+	z-index: 100;
+	width: 100%;
+	opacity: 0;
+	-webkit-transition: width 5s ease-in, opacity 1s 5s;
+	transition: width 5s ease-in, opacity 1s 5s;
+}
+
+/* Effect 8: Fill sides */
+.la-anim-8 div {
+	position: fixed;
+	bottom: 0;
+	z-index: -1;
+	width: 50px;
+	height: 100%;
+	background: rgba(0,0,0,0.1);
+	-webkit-transition: -webkit-transform 5s ease-in, opacity 1s 5s;
+	transition: transform 5s ease-in, opacity 1s 5s;
+	-webkit-transform: translate3d(0, 100%, 0);
+	transform: translate3d(0, 100%, 0);
+	pointer-events: none;
+}
+
+.la-anim-8 div:first-child {
+	right: 0;
+}
+
+.la-anim-8.la-animate div {
+	z-index: 100;
+	opacity: 0;
+	-webkit-transform: translate3d(0, 0, 0);
+	transform: translate3d(0, 0, 0);
+}
+
+/* Effect 9: Surrounding borders */
+.la-anim-9 {
+	position: fixed;
+	z-index: -1;
+	width: 100%;
+	height: 100%;
+	border: 0px solid rgba(0,0,0,0.1);
+	pointer-events: none;
+}
+
+.la-anim-9 div {
+	position: fixed;
+	background: #2c3e52;
+}
+
+.la-anim-9 div:first-child,
+.la-anim-9 div:nth-child(3) {
+	width: 0;
+	height: 50px;
+}
+
+.la-anim-9 div:nth-child(2),
+.la-anim-9 div:nth-child(4) {
+	width: 50px;
+	height: 0;
+} 
+
+.la-anim-9 div:first-child {
+	top: 0;
+	left: 0;
+}
+
+.la-anim-9.la-animate div:first-child {
+	width: 100%;
+	-webkit-transition: width 1.35s linear 0.3s;
+	transition: width 1.35s linear 0.3s;
+}
+
+.la-anim-9 div:nth-child(2) {
+	top: 0;
+	right: 0;
+}
+
+.la-anim-9.la-animate div:nth-child(2) {
+	height: 100%;
+	-webkit-transition: height 1.35s linear 1.65s;
+	transition: height 1.35s linear 1.65s;
+}
+
+.la-anim-9 div:nth-child(3) {
+	right: 0;
+	bottom: 0;
+}
+
+.la-anim-9.la-animate div:nth-child(3) {
+	width: 100%;
+	-webkit-transition: width 1.35s linear 3s;
+	transition: width 1.35s linear 3s;
+}
+
+.la-anim-9 div:nth-child(4) {
+	bottom: 0;
+	left: 0;
+}
+
+.la-anim-9.la-animate div:nth-child(4) {
+	height: 100%;
+	-webkit-transition: height 1.35s linear 4.35s;
+	transition: height 1.35s linear 4.35s;
+}
+
+.la-anim-9.la-animate {
+	z-index: 100;
+	border: 50px solid rgba(0,0,0,0.1);
+	opacity: 0;
+	-webkit-transition: border 0.3s, opacity 0.3s 5.7s;
+	transition: border 0.3s, opacity 0.3s 5.7s;
+}
+
+/* Effect 10: Corner indicator */
+.la-anim-10 {
+	position: fixed;
+	top: 0;
+	right: 0;
+	width: 300px;
+	height: 300px;
+	background: #ed4e6e;
+	-webkit-transition: -webkit-transform 0.3s;
+	transition: transform 0.3s;
+	-webkit-transform: translateX(100%) translateY(-100%) rotate(45deg);
+	transform: translateX(100%) translateY(-100%) rotate(45deg);
+	pointer-events: none;
+}
+
+.la-anim-10.la-animate {
+	-webkit-transform: translateX(50%) translateY(-50%) rotate(45deg);
+	transform: translateX(50%) translateY(-50%) rotate(45deg);
+}
+
+/* Loading circle idea from http://codepen.io/Metty/details/lgJck */
+.la-anim-10::before,
+.la-anim-10::after {
+	position: absolute;
+	bottom: 30px;
+	left: 50%;
+	display: block;
+	border: 5px solid #fff;
+	border-radius: 50%;
+	content: '';
+}
+
+.la-anim-10::before {
+	margin-left: -40px;
+	width: 80px;
+	height: 80px;
+	border-right-color: #bb344f;
+	border-left-color: #bb344f;
+	-webkit-animation: rotation 3s linear infinite;
+	animation: rotation 3s linear infinite;
+}
+
+.la-anim-10::after {
+	bottom: 50px;
+	margin-left: -20px;
+	width: 40px;
+	height: 40px;
+	border-top-color: #bb344f;
+	border-bottom-color: #bb344f;
+	-webkit-animation: rotation 1s linear infinite;
+	animation: rotation 1s linear infinite;
+}
+
+
+@-webkit-keyframes rotation {
+	0% 		{ -webkit-transform: rotate(0deg); }
+	50% 	{ -webkit-transform: rotate(180deg); }
+	100% 	{ -webkit-transform: rotate(360deg); }
+}
+
+@keyframes rotation {
+	0% 		{ transform: rotate(0deg); }
+	50% 	{ transform: rotate(180deg); }
+	100% 	{ transform: rotate(360deg); }
+}
+
+/* Effect 11: Big counter */
+
+.la-anim-11 {
+	position: fixed;
+	right: 20px;
+	z-index: -1;
+	display: inline-block;
+	visibility: hidden;
+	overflow: hidden;
+	height: 1em;
+	text-align: right;
+	font-weight: 300;
+	font-size: 10em;
+	line-height: 1em;
+	pointer-events: none;
+}
+
+.la-anim-11.la-animate {
+	visibility: visible;
+}
+
+.la-anim-11::after {
+	position: relative;
+	width: 100%;
+	color: rgba(0,0,0,0.1);
+	content: "0%\A 10%\A 22%\A 36%\A 48%\A 53%\A 64%\A 71%\A 83%\A 100%\A";
+	white-space: pre;
+}
+
+.la-anim-11.la-animate::after {
+	-webkit-animation: counter 6s steps(10);
+	animation: counter 6s steps(10);
+}
+
+@keyframes counter { 
+	0% { top: 0; } 
+	100% { top: -10em; opacity: 0;} 
+}
+@-webkit-keyframes counter {
+	0% { top: 0; } 
+	100% { top: -10em; opacity: 0;} 
+}
+
+/* Effect 12: Letter fill */
+.la-anim-12 {
+	position: relative;
+	width: 11em;
+	color: rgba(255,255,255,0.6);
+}
+
+.la-anim-12::before {
+	position: absolute;
+	overflow: hidden;
+	width: 0;
+	color: #fff;
+	content: attr(data-content);
+	text-align: left;
+	white-space: nowrap;
+}
+
+.la-anim-12.la-animate::before {
+	width: 100%;
+	opacity: 0;
+	-webkit-transition: width 5.7s linear, opacity 0.3s 5.7s;
+	transition: width 5.7s linear, opacity 0.3s 5.7s;
+}
+
+/* Effect 13: Flat bar top */
+.la-anim-13 {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: -1;
+	width: 100%;
+	height: 50px;
+	background: rgba(0,0,0,0.1);
+	pointer-events: none;
+	-webkit-transform: translate3d(0, -100%, 0);
+	transform: translate3d(0, -100%, 0);
+	-webkit-transition: -webkit-transform 0.3s;
+	transition: transform 0.3s;
+}
+
+.la-anim-13::before {
+	position: absolute;
+	content: '';
+	height: 100%;
+	width: 100%;
+	background: #ed4e6e;
+	opacity: 0;
+	-webkit-transform: translate3d(-100%, 0, 0);
+	transform: translate3d(-100%, 0, 0);
+	-webkit-transition: opacity 0.3s, -webkit-transform 0s 0.3s;
+	transition: opacity 0.3s, transform 0s 0.3s;
+}
+
+.la-anim-13.la-animate::before {
+	opacity: 1;
+	-webkit-transition: -webkit-transform 5.4s linear 0.3s;
+	transition: transform 5.4s linear 0.3s;
+}
+
+.la-anim-13.la-animate,
+.la-anim-13.la-animate::before {
+	-webkit-transform: translate3d(0, 0, 0);
+	transform: translate3d(0, 0, 0);
+}
