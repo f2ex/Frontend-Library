@@ -1,7 +1,7 @@
 # Web 前端资源库  
 收集自开源网络，欢迎提交分享 :)
 
-* [天气动画卡片](packages/Animated Weather Cards)
+* [天气动画卡片](packages/AnimatedWeatherCards)
 * [SVG 菜单图标弹性动画](packages/AnimatedMenuIcon)
 * [21 种创意链接效果](packages/CreativeLinkEffects)
 * [13 种创意 loading 效果](packages/CreativeLoadingEffects)
