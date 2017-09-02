@@ -19,3 +19,4 @@
 * [创意按钮样式](packages/CreativeButtons)
 * [创意按钮进度条样式](packages/ProgressButtonStyles)
 * [页面变形过渡效果](packages/MorphingPageTransition)
+* [交互式拖放为页面元素着色](packages/InteractiveColoringConcept)
