@@ -18,3 +18,4 @@
 * [使用 SVG 创建 Material Design 涟漪纹波效果](packages/svgripples)
 * [创意按钮样式](packages/CreativeButtons)
 * [创意按钮进度条样式](packages/ProgressButtonStyles)
+* [页面变形过渡效果](packages/MorphingPageTransition)
