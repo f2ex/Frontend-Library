@@ -1,4 +1,4 @@
-# Web 前端资源库  
+# Web 前端资源库 
 收集自开源网络，欢迎提交分享 🎉
 
 * [天气动画卡片](packages/AnimatedWeatherCards)
@@ -22,3 +22,4 @@
 * [交互式拖放为页面元素着色](packages/InteractiveColoringConcept)
 * [字母透明的响应视差幻灯片](packages/ResponsiveParallaxDrag-Slider)
 * [SVG 绘图动画](packages/SVGDrawingAnimation)
+* [垂直固定导航(侧栏)](packages/vertical-fixed-navigation)
