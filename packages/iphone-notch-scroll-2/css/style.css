@@ -1,0 +1,97 @@
+:root {
+  --width: 494px;
+  --height: 242px;
+  --chrome: 22.5px;
+  --outer-border-radius: 25px;
+  --thumb-radius: 0px;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+* {
+  box-sizing: inherit;
+}
+
+body {
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: -webkit-radial-gradient(turquoise, midnightblue);
+  background: radial-gradient(turquoise, midnightblue);
+  font-weight: lighter;
+  font-size: 10px;
+}
+
+.outer {
+  position: relative;
+  margin: 0 auto;
+  width: var(--width);
+  height: var(--height);
+  border-radius: var(--outer-border-radius);
+  border: solid 2px buttonface;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  
+  background: black;
+}
+
+.inner {
+  background: white;
+/*   position: absolute; */
+  margin: 0 auto;
+  width: calc(100% - var(--chrome));
+  height: calc(100% - var(--chrome));
+  border-radius: calc(var(--chrome) - 10px);
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.notch {
+  position: absolute;
+  background: black;
+  width: 3%;
+  height: 60%;
+  top: 20%;
+  left:calc(var(--chrome)/2);
+  border-radius: 0 10px 10px 0;
+}
+
+ul {
+  padding-left: calc(var(--chrome)/4);
+  padding-right: 10px;
+  margin: 5px 0;
+  overflow: hidden;
+}
+
+li {
+  list-style: none;
+  padding: 5px 5px;
+  border-bottom: 1px solid #dadada;
+  -webkit-transform-origin: center left;
+          transform-origin: center left;
+}
+
+*::-webkit-scrollbar { 
+  width: 5px;
+  padding: 100px;
+  -webkit-transform: scalex(10);
+          transform: scalex(10);
+}
+
+*::-webkit-scrollbar-thumb {
+  border-radius: var(--thumb-radius);
+  background-color: #5555;
+  padding-right: 5px;
+  -webkit-transform: scalex(10);
+          transform: scalex(10);
+}

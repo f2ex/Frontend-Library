@@ -23,3 +23,5 @@
 * [字母透明的响应视差幻灯片](packages/ResponsiveParallaxDrag-Slider)
 * [SVG 绘图动画](packages/SVGDrawingAnimation)
 * [垂直固定导航(侧栏)](packages/vertical-fixed-navigation)
+* [iphone X 缺口滚动条](packages/iphone-notch-scroll)
+* [iphone X 缺口滚动条2](packages/iphone-notch-scroll-2)
