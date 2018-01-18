@@ -26,3 +26,4 @@
 * [iphone X 缺口滚动条](packages/iphone-notch-scroll)
 * [iphone X 缺口滚动条2](packages/iphone-notch-scroll-2)
 * [摇摆弹性效果幻灯片](packages/WobblySlideshowEffect)
+* [酷炫的字母动画](packages/DecorativeLetterAnimations)
