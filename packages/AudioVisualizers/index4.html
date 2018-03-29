@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Audio Visualizers | Demo 4</title>
+	<meta name="description" content="An exploration of audio visualizers powered by p5.js" />
+	<meta name="keywords" content="visualizers, audio, javascript, upload, music, line, web design" />
+	<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+	<link rel="stylesheet" type="text/css" href="css/demo.css" />
+	<script>
+	document.documentElement.className = 'js';
+	</script>
+</head>
+
+<body class="demo-4">
+	<main class="site-wrapper">
+		<header class="codrops-header">
+			<h1 class="codrops-header__title">Audio Visualizers</h1>
+			<nav class="demos">
+				<a class="demo" href="index.html">Demo 1</a>
+				<a class="demo" href="index2.html">Demo 2</a>
+				<a class="demo" href="index3.html">Demo 3</a>
+				<a class="demo demo--current" href="index4.html">Demo 4</a>
+				<a class="demo" href="index5.html">Demo 5</a>
+			</nav>
+		</header>
+		<div class="content main">
+			<div class="canvas-wrapper">
+				<div id="p5_loading" class="p5_loading">
+					<div class="p5_loading__inner">
+						<span></span>
+					</div>
+				</div>
+				<div id="uploading-animation" class="p5_loading">
+					<div class="p5_loading__inner">
+						<span></span>
+					</div>
+				</div>
+				<canvas id="webglcanvas"></canvas>
+			</div>
+		</div>
+	</main>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/p5.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/addons/p5.dom.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/addons/p5.sound.min.js"></script>
+	<script src="js/main4.js"></script>
+</body>
+
+</html>
