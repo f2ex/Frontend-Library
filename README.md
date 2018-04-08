@@ -28,3 +28,4 @@
 * [摇摆弹性效果幻灯片](packages/WobblySlideshowEffect)
 * [酷炫的字母动画](packages/DecorativeLetterAnimations)
 * [音频可视化](packages/AudioVisualizers)
+* [3D网格效果](packages/3DGridEffect)
