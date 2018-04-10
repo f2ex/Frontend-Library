@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>使用 Flexbox 制作粘性页脚</title>
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+
+	<header>
+
+		<div class="header-limiter">
+
+			<h1><a href="#@"><span>小技巧:</span> 制作粘性页脚的最好方式</a></h1>
+
+			<nav>
+				<a href="http://tutorialzine.com/2016/03/quick-tip-the-best-way-to-make-sticky-footers/">下载</a>
+			</nav>
+		</div>
+
+	</header>
+
+	<section class="main-content">
+		<div class="card">
+			<h1>粘性页脚 Demo</h1>
+			<h3>这个页面演示了如何创建一个使用 flexbox 的页脚，无论中间的内容部分是否会超出浏览器高度，该页脚始终粘贴在页面的底部。</h3>
+			<a href='#' id="add-content">切换内容</a>
+
+			<div class="dummy-content">
+				<p>我白天是个邮递员，晚上就是个有抱负的演员。这是一个 demo 页面，我住在天朝的帝都，有条叫做二哈的狗。</p>
+				<img src="satelite.jpg" alt="Satelite Image">
+				<p>XYZ装置公司成立于1971年，公司成立以来，我们一直向市民提供高品质的装置。我们位于北京市，有超过2,000名员工，对北京市有着相当大的贡献。</p>
+			</div>
+		</div>
+	</section>
+
+
+
+	<footer>
+		
+		<div class="footer-limiter">
+
+			<div class="footer-right">
+
+				<a href="#"><i class="fa fa-weibo"></i></a>
+				<a href="#"><i class="fa fa-qq"></i></a>
+				<a href="#"><i class="fa fa-weixin"></i></a>
+				<a href="#"><i class="fa fa-github"></i></a>
+
+			</div>
+
+			<div class="footer-left">
+
+				<p class="footer-links">粘性页脚</p>
+
+				<p>始终在页面底部</p>
+			</div>
+
+		</div>
+
+	</footer>
+
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.1.min.js"></script>
+	<script>
+		var dummyContent = $('.dummy-content').children(),
+			i;
+
+
+		$('#add-content').click(function(e){
+			e.preventDefault();
+
+			if($(dummyContent[0]).is(":visible")){
+				for(i=0;i<dummyContent.length;i++){
+					$(dummyContent[i]).fadeOut(600);
+				}
+			}
+			else{
+				for(i=0;i<dummyContent.length;i++){
+					$(dummyContent[i]).delay(600*i).fadeIn(600);
+				}
+			}
+
+		});
+	</script>
+</body>
+
+</html>

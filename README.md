@@ -25,6 +25,7 @@
 * [创意按钮进度条样式](packages/ProgressButtonStyles)
 * [字母透明的响应视差幻灯片](packages/ResponsiveParallaxDrag-Slider)
 * [11 种互动效果搜索界面](packages/SearchUIEffects)
+* [粘性页脚](packages/sticky-footers)
 * [SVG 绘图动画](packages/SVGDrawingAnimation)
 * [使用 SVG 创建 Material Design 涟漪纹波效果](packages/svgripples)
 * [垂直固定导航(侧栏)](packages/vertical-fixed-navigation)
