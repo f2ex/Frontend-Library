@@ -5,6 +5,7 @@
 * [动态添加和删除 HTML 元素 jQuery 插件](packages/addel)
 * [SVG 菜单图标弹性动画](packages/AnimatedMenuIcon)
 * [天气动画卡片](packages/AnimatedWeatherCards)
+* [单页面文章效果](packages/ArticleIntroEffects)
 * [音频可视化](packages/AudioVisualizers)
 * [创意按钮样式](packages/CreativeButtons)
 * [21 种创意链接效果](packages/CreativeLinkEffects)
