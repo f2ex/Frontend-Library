@@ -1,5 +1,5 @@
-# Web 前端资源库 
-收集自开源网络，欢迎提交分享 🎉
+# Web 前端开发资源 
+由开发者提供 🎉
 
 * [3D网格效果](packages/3DGridEffect)
 * [动态添加和删除 HTML 元素 jQuery 插件](packages/addel)
