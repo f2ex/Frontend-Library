@@ -1,3 +1,3 @@
 ## sticky footers (粘性页脚)
 
-[预览](https://f2ex.github.io/Frontend-Library/packages/sticky-footers/)
+[预览](https://cooodev.github.io/Frontend-Library/packages/sticky-footers/)
